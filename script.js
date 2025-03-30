@@ -1,34 +1,14 @@
-function addChannel() {
-    var link = document.getElementById('m3uLink').value;
-    if (link) {
-        var channelList = document.getElementById('channelList');
+function copyLink(inputId) {
+    // Merr inputin e caktuar nga id
+    var copyText = document.getElementById(inputId);
 
-        var channelItem = document.createElement('div');
-        channelItem.classList.add('channel-item');
+    // Selekto tekstin në input
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // Për celularët
 
-        var channelLink = document.createElement('span');
-        channelLink.textContent = link;
+    // Kopjo tekstin në clipboard
+    document.execCommand("copy");
 
-        var copyButton = document.createElement('button');
-        copyButton.classList.add('copy-btn');
-        copyButton.textContent = 'Kopjo';
-        copyButton.onclick = function() { copyToClipboard(link); };
-
-        channelItem.appendChild(channelLink);
-        channelItem.appendChild(copyButton);
-        channelList.appendChild(channelItem);
-
-        document.getElementById('m3uLink').value = '';
-    }
-}
-
-function copyToClipboard(text) {
-    var tempInput = document.createElement('input');
-    tempInput.value = text;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-
-    alert('Linku M3U u kopjua në clipboard!');
+    // Tregon një mesazh për përdoruesin (opsional)
+    alert("Linku është kopjuar: " + copyText.value);
 }

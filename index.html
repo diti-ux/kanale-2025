@@ -5,29 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanale Falas 2025</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
-
-<header>
-    <h1>Kanale Falas 2025</h1>
-</header>
-
-<div class="container">
-    <div class="input-group">
-        <input type="text" id="m3uLink" placeholder="Futni linkun M3U këtu">
-        <button onclick="addChannel()">Shto Kanalin</button>
+    <div class="container">
+        <h1>Kanale Falas 2025</h1>
+        
+        <!-- Inputi për të shtuar linkun M3U -->
+        <div class="input-container">
+            <label for="m3u-link">Fut linkun M3U:</label>
+            <input type="text" id="m3u-link" placeholder="Fut linkun M3U këtu">
+            <button onclick="copyLink()">Kopjo Linkun</button>
+        </div>
+        
+        <!-- Pjesa ku shfaqen linkat -->
+        <div id="links-container">
+            <!-- Këtu mund të shtoni linkat M3U -->
+            <div class="link-item">
+                <input type="text" value="https://example.com/kanale.m3u" id="link1" readonly>
+                <button onclick="copyLink('link1')">Kopjo Link</button>
+            </div>
+        </div>
     </div>
-
-    <div class="channel-list" id="channelList">
-        <!-- Kanale do të shfaqen këtu -->
-    </div>
-</div>
-
-<div class="footer">
-    <p>© 2025 Kanale Falas</p>
-</div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
