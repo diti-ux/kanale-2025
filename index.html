@@ -65,6 +65,14 @@
             background-color: #d35400;
         }
 
+        .link-text {
+            display: inline-block;
+            max-width: 300px; /* Set a limit for link display */
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
     </style>
 </head>
 <body>
@@ -73,23 +81,23 @@
     <button onclick="shfaqLinke()">Kliko Këtu</button>
 
     <div id="linkeContainer">
-        <h3>Falas IPTV përditësohen çdo 1 javë</h3>
+        <h3>Linket IPTV:</h3>
         <ul>
             <li>
-                <span>https://example.com/link1.m3u</span>
-                <button class="copy-button" onclick="kopjoLink('https://example.com/link1.m3u')">Kopjo Link</button>
+                <span class="link-text" id="link1">http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u</span>
+                <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u')">Kopjo Linkun</button>
             </li>
             <li>
-                <span>https://example.com/link2.m3u</span>
-                <button class="copy-button" onclick="kopjoLink('https://example.com/link2.m3u')">Kopjo Link</button>
+                <span class="link-text" id="link2">http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts</span>
+                <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts')">Kopjo Linkun</button>
             </li>
             <li>
-                <span>https://example.com/link3.m3u</span>
-                <button class="copy-button" onclick="kopjoLink('https://example.com/link3.m3u')">Kopjo Link</button>
+                <span class="link-text" id="link3">http://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus</span>
+                <button class="copy-button" onclick="kopjoLink('hhttp://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus')">Kopjo Linkun</button>
             </li>
             <li>
-                <span>https://example.com/link4.m3u</span>
-                <button class="copy-button" onclick="kopjoLink('https://example.com/link4.m3u')">Kopjo Link</button>
+                <span class="link-text" id="link4">http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus</span>
+                <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus')">Kopjo Linkun</button>
             </li>
             <!-- Shtoni më shumë linke këtu -->
         </ul>
@@ -99,6 +107,20 @@
         function shfaqLinke() {
             // Tregon kutinë e linkeve kur butoni klikohet
             document.getElementById("linkeContainer").style.display = "block";
+            // Kjo mund të bëhet dinamike nëse linket ndodhen në një array ose skedar tjetër
+            // Për shembull mund të ndryshosh linket këtu
+            const links = [
+                "http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u",
+                "http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts",
+                "http://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus",
+                "http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus"
+            ];
+
+            // I shton dinamizëm linkeve për t'u shfaqur
+            for (let i = 0; i < links.length; i++) {
+                const link = links[i];
+                document.getElementById('link' + (i+1)).textContent = link;
+            }
         }
 
         function kopjoLink(link) {
@@ -113,6 +135,7 @@
             // Dërgon një mesazh që linku është kopjuar
             alert("Linku është kopjuar në clipboard: " + link);
         }
+
     </script>
 
 </body>
