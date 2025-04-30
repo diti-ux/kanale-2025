@@ -2,48 +2,60 @@
 <html lang="sq">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kërçova IPTV Falas</title>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26MXM51VM"></script>
     <script>
-      window.dataLayer = window.dataLayer || []; 
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-43H2725BSH');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-43H2725BSH');
     </script>
 
+    <!-- Stil Modern -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             text-align: center;
-            padding: 50px;
+            padding: 50px 20px;
         }
 
         h1 {
-            color: #21a428;
+            color: #00ff88;
+            margin-bottom: 20px;
+            font-size: 2em;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 16px;
-            cursor: pointer;
-            background-color: #000000;
-            color: white;
+            background-color: #00cc66;
+            color: #ffffff;
             border: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #565656;
+            background-color: #00994d;
         }
 
         #linkeContainer {
-            margin-top: 30px;
+            margin-top: 40px;
             display: none;
+            background-color: #1c1c1c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        h3 {
+            color: #00ff88;
+            margin-bottom: 20px;
         }
 
         #linkeContainer ul {
@@ -52,38 +64,36 @@
         }
 
         #linkeContainer ul li {
-            margin: 10px 0;
-        }
-
-        a {
-            color: #000000;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .copy-button {
-            background-color: #000000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        .copy-button:hover {
-            background-color: #2980b9;
+            margin: 15px 0;
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow-wrap: anywhere;
         }
 
         .link-text {
-            display: inline-block;
-            max-width: 300px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
+            flex: 1;
+            color: #dcdcdc;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .copy-button {
+            background-color: #00cc66;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background-color: #00994d;
         }
     </style>
 </head>
@@ -95,16 +105,16 @@
     <div id="linkeContainer">
         <h3>Listat IPTV</h3>
         <ul>
-            <li><span class="link-text">http://xtream-ie.org/get.php?username=hPVRQkgBasW&password=tFgQd584fS&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://xtream-ie.org/get.php?username=hPVRQkgBasW&password=tFgQd584fS&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://xtream-ie.org/get.php?username=XgDWWj6WBo&password=R9PcLdnoA7&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://xtream-ie.org/get.php?username=XgDWWj6WBo&password=R9PcLdnoA7&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://vcxy.me:80/get.php?username=kunatipetritit&password=kunatipetritit&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=kunatipetritit&password=kunatipetritit&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://vcxy.me:80/get.php?username=BlerimMahmuti&password=gxYqYZkXQhKj7UumEurQ&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=BlerimMahmuti&password=gxYqYZkXQhKj7UumEurQ&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://vcxy.me:80/get.php?username=gerti&password=bozo&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=gerti&password=bozo&type=m3u_plus')">Kopjo Listën</button></li>
-            <li><span class="link-text">http://vcxy.me:80/get.php?username=BujarKastrati25&password=mACqG18McmewJptdcraYfdegtdsg&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=BujarKastrati25&password=mACqG18McmewJptdcraYfdegtdsg&type=m3u_plus')">Kopjo Listën</button></li>
+            <li><span class="link-text">http://xtream-ie.org/get.php?username=hPVRQkgBasW&password=tFgQd584fS&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://xtream-ie.org/get.php?username=hPVRQkgBasW&password=tFgQd584fS&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://xtream-ie.org/get.php?username=XgDWWj6WBo&password=R9PcLdnoA7&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://xtream-ie.org/get.php?username=XgDWWj6WBo&password=R9PcLdnoA7&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u')">Kopjo</button></li>
+            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=mhmt9949&password=Thr5R8NvGcU5&type=m3u&output=ts')">Kopjo</button></li>
+            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=lkr8227&password=lkr.8227&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://brsmrt1611.xyz:8080/get.php?username=slhttn5162&password=cn.26052024&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://vcxy.me:80/get.php?username=kunatipetritit&password=kunatipetritit&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=kunatipetritit&password=kunatipetritit&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://vcxy.me:80/get.php?username=BlerimMahmuti&password=gxYqYZkXQhKj7UumEurQ&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=BlerimMahmuti&password=gxYqYZkXQhKj7UumEurQ&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://vcxy.me:80/get.php?username=gerti&password=bozo&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=gerti&password=bozo&type=m3u_plus')">Kopjo</button></li>
+            <li><span class="link-text">http://vcxy.me:80/get.php?username=BujarKastrati25&password=mACqG18McmewJptdcraYfdegtdsg&type=m3u_plus</span> <button class="copy-button" onclick="kopjoLink('http://vcxy.me:80/get.php?username=BujarKastrati25&password=mACqG18McmewJptdcraYfdegtdsg&type=m3u_plus')">Kopjo</button></li>
         </ul>
     </div>
 
