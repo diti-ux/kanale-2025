@@ -77,7 +77,7 @@
     }
 
     .btn-primary:hover {
-      background:  #0056b3;
+      background: #0056b3;
     }
 
     .iptv-list {
@@ -151,7 +151,17 @@
   </div>
 
   <div class="iptv-list" id="iptv">
-    <h2 style="text-align: center;">Lista IPTV</h2>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <h2 style="margin: 0;">Lista IPTV</h2>
+      <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
+    </div>
+
+    <div id="infoBox" style="display: none; margin-top: 20px; padding: 15px; background-color: #d0ff00; color: #000; border-radius: 8px; text-align: center;">
+      Linkat IPTV përditësohen çdo 1 javë. ❗
+      <br><br>
+      <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Mbyll</button>
+    </div>
+
     <div class="iptv-item">
       <span class="link-text" title="http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts">http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts</span>
       <button onclick="copyLink('http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts')" style="font-weight: bold;">Kopjo</button>
@@ -188,6 +198,14 @@
     function shfaqListat() {
       document.getElementById("iptv").style.display = "block";
       document.getElementById("iptv").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function shfaqInfo() {
+      document.getElementById("infoBox").style.display = "block";
+    }
+
+    function mbyllInfo() {
+      document.getElementById("infoBox").style.display = "none";
     }
   </script>
 
