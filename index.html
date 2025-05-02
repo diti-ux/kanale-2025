@@ -135,19 +135,33 @@
       padding: 30px;
       color: gray;
     }
+
+    /* Stil për chart */
+    .chart-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body class="dark-mode">
 
   <div class="navbar">
     <h1>ShqipTV+</h1>
-    <button onclick="toggleMode()" style="font-weight: bold;">Dark/Ligh Mode</button>
+    <button onclick="toggleMode()" style="font-weight: bold;">Dark/Light Mode</button>
   </div>
 
   <div class="hero">
     <h2>kërçova IPTV</h2>
     <p style="font-weight: bold;">Shiko kanale pa pagesë në cilësi të lartë</p>
     <button class="btn-primary" onclick="shfaqListat()" style="font-weight: bold;">Shfaq Listat</button>
+  </div>
+
+  <!-- CHART + TRANSAKSIONET -->
+  <div class="chart-container">
+    <iframe src="https://dexscreener.com/solana/63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9?embed=1&theme=dark" width="100%" height="600" frameborder="0"></iframe>
   </div>
 
   <div class="iptv-list" id="iptv">
