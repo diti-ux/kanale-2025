@@ -136,13 +136,41 @@
       color: gray;
     }
 
-    /* Stil për chart */
     .chart-container {
       max-width: 1000px;
       margin: 40px auto;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .ca-form {
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .ca-form input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .ca-form button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .ca-form button:hover {
+      background: #0056b3;
     }
   </style>
 </head>
@@ -159,9 +187,15 @@
     <button class="btn-primary" onclick="shfaqListat()" style="font-weight: bold;">Shfaq Listat</button>
   </div>
 
-  <!-- CHART + TRANSAKSIONET -->
+  <!-- FORM për CA -->
+  <div class="ca-form">
+    <input type="text" id="caInput" placeholder="Ngjit këtu CA (Contract Address)" />
+    <button onclick="ndryshoChart()">Shfaq Coin</button>
+  </div>
+
+  <!-- CHART -->
   <div class="chart-container">
-    <iframe src="https://dexscreener.com/solana/63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9?embed=1&theme=dark" width="100%" height="600" frameborder="0"></iframe>
+    <iframe id="dexChart" src="https://dexscreener.com/solana/63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9?embed=1&theme=dark" width="100%" height="600" frameborder="0"></iframe>
   </div>
 
   <div class="iptv-list" id="iptv">
@@ -220,6 +254,16 @@
 
     function mbyllInfo() {
       document.getElementById("infoBox").style.display = "none";
+    }
+
+    function ndryshoChart() {
+      let ca = document.getElementById('caInput').value.trim();
+      if (ca === '') {
+        alert('Vendos CA të coin-it!');
+        return;
+      }
+      let chartUrl = `https://dexscreener.com/solana/${ca}?embed=1&theme=dark`;
+      document.getElementById('dexChart').src = chartUrl;
     }
   </script>
 
