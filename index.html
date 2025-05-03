@@ -48,17 +48,6 @@
       font-size: 1.5em;
     }
 
-    .navbar button {
-      background: #fff;
-      color: var(--primary);
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-left: 10px;
-    }
-
     .hero {
       text-align: center;
       padding: 60px 20px;
@@ -105,6 +94,10 @@
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0 0 22px rgba(108, 169, 255, 0.7);
+    }
+
+    body.terminal-mode .planet-container {
+      box-shadow: 0 0 15px #00ff00;
     }
 
     .planet-container .layer {
@@ -176,7 +169,7 @@
     }
 
     body.terminal-mode .iptv-item {
-      background: rgba(176, 155, 155, 0.2);
+      background: #000;
       color: var(--terminal-text);
     }
 
@@ -199,6 +192,11 @@
       transition: background 0.3s;
     }
 
+    body.terminal-mode .iptv-item button {
+      background: #00ff00;
+      color: #000;
+    }
+
     .iptv-item button:hover {
       background: #218838;
     }
@@ -214,7 +212,7 @@
     }
 
     body.terminal-mode .footer {
-      color: var(--terminal-text);
+      color: #00ff00;
     }
 
     #infoBox {
@@ -232,118 +230,210 @@
       color: #000;
     }
 
-    /* Responsive: për telefon */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1000;
+      transition: opacity 0.3s;
+    }
+
+    .hamburger span {
+      height: 4px;
+      border-radius: 2px;
+      background: white;
+    }
+
+    .hamburger.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     @media (max-width: 600px) {
       .navbar div {
         display: flex;
         flex-direction: column;
         gap: 10px;
       }
+    }
 
-      .navbar button {
-        margin-left: 0;
-      }
+    #modeSidebar {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      z-index: 1000;
+      width: 250px;
+      font-size: 1.2em;
+      animation: fadeIn 0.3s ease;
+    }
+
+    #modeSidebar button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #modeSidebar button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-
 <body class="dark-mode">
 
-  <div class="navbar">
-    <h1>ShqipTV+</h1>
-    <div>
-      <button onclick="setMode('light')">Light Mode</button>
-      <button onclick="setMode('dark')">Dark Mode</button>
+<div class="hamburger" id="hamburger" onclick="toggleSidebar(event)">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="navbar">
+  <h1>ShqipTV+</h1>
+</div>
+
+<div class="hero">
+  <h2>kërçova IPTV</h2>
+  <p>Shiko kanale pa pagesë në cilësi të lartë</p>
+  <div class="planet-container" aria-label="Globi që rrotullohet">
+    <div class="layer night"></div>
+    <div class="layer day"></div>
+    <div class="layer clouds"></div>
+  </div>
+  <button class="btn-primary" onclick="shfaqListat()">Show Lists</button>
+</div>
+
+<div class="iptv-list" id="iptv">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+    <h2 style="margin: 0;">IPTV Lists</h2>
+    <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
+  </div>
+
+  <div id="infoBox">
+    <span style="font-weight: bold;">❗ Listat IPTV përditësohen çdo 1 javë. ❗</span><br><br>
+    <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
+  </div>
+
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user1&password=pass1</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user1&password=pass1', this)">Copy</button>
+  </div>
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user2&password=pass2</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user2&password=pass2', this)">Copy</button>
+  </div>
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user3&password=pass3</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user3&password=pass3', this)">Copy</button>
+  </div>
+</div>
+
+<div class="footer">
+  &copy; 2025 ShqipTV+ | Powered by Open IPTV
+</div>
+
+<script>
+  window.onload = function() {
+    setMode('dark');
+  }
+
+  function setMode(mode) {
+    document.body.classList.remove('dark-mode', 'light-mode', 'terminal-mode');
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+    } else if (mode === 'light') {
+      document.body.classList.add('light-mode');
+    } else if (mode === 'terminal') {
+      document.body.classList.add('terminal-mode');
+    }
+  }
+
+  function copyLink(link, btnElement) {
+    navigator.clipboard.writeText(link).then(() => {
+      btnElement.textContent = "Copied";
+      btnElement.style.backgroundColor = "#008000";
+      setTimeout(() => {
+        btnElement.textContent = "Copy";
+        btnElement.style.backgroundColor = "#28a745";
+      }, 2000);
+    }).catch(err => {
+      alert("Ndodhi një gabim: " + err);
+    });
+  }
+
+  function shfaqListat() {
+    document.getElementById("iptv").style.display = "block";
+    document.getElementById("iptv").scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function shfaqInfo() {
+    document.getElementById("infoBox").style.display = "block";
+  }
+
+  function mbyllInfo() {
+    document.getElementById("infoBox").style.display = "none";
+  }
+
+  function toggleSidebar(event) {
+    event.stopPropagation();
+
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger.classList.contains('hidden')) return;
+
+    const existingSidebar = document.getElementById('modeSidebar');
+    if (existingSidebar) {
+      existingSidebar.remove();
+      return;
+    }
+
+    const sidebar = document.createElement('div');
+    sidebar.id = 'modeSidebar';
+    sidebar.innerHTML = `
+      <button onclick="setMode('light')">Light Mode</button><br>
+      <button onclick="setMode('dark')">Dark Mode</button><br>
       <button onclick="setMode('terminal')">Terminal Mode</button>
-    </div>
-  </div>
+    `;
+    document.body.appendChild(sidebar);
+    document.addEventListener('click', closeSidebar);
+  }
 
-  <div class="hero">
-    <h2>kërçova IPTV</h2>
-    <p>Shiko kanale pa pagesë në cilësi të lartë</p>
-
-    <div class="planet-container" aria-label="Globi që rrotullohet">
-      <div class="layer night"></div>
-      <div class="layer day"></div>
-      <div class="layer clouds"></div>
-    </div>
-
-    <button class="btn-primary" onclick="shfaqListat()">Show Lists</button>
-  </div>
-
-  <div class="iptv-list" id="iptv">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-      <h2 style="margin: 0;">IPTV Lists</h2>
-      <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
-    </div>
-
-    <div id="infoBox">
-      <span style="font-weight: bold;">❗ Listat IPTV përditësohen çdo 1 javë. ❗</span>
-      <br><br>
-      <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
-    </div>
-
-    <div class="iptv-item">
-      <span class="link-text" title="Kopjo listën tek butoni">http://example.com/get.php?username=user1&password=pass1</span>
-      <button onclick="copyLink('http://example.com/get.php?username=user1&password=pass1', this)">Copy</button>
-    </div>
-    <div class="iptv-item">
-      <span class="link-text" title="Kopjo listën tek butoni">http://example.com/get.php?username=user2&password=pass2</span>
-      <button onclick="copyLink('http://example.com/get.php?username=user2&password=pass2', this)">Copy</button>
-    </div>
-    <div class="iptv-item">
-      <span class="link-text" title="Kopjo listën tek butoni">http://example.com/get.php?username=user3&password=pass3</span>
-      <button onclick="copyLink('http://example.com/get.php?username=user3&password=pass3', this)">Copy</button>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    &copy; 2025 ShqipTV+ | Powered by Open IPTV
-  </div>
-
-  <script>
-    window.onload = function() {
-      setMode('dark');
+  function closeSidebar(event) {
+    const sidebar = document.getElementById('modeSidebar');
+    if (sidebar && !sidebar.contains(event.target)) {
+      sidebar.remove();
+      document.removeEventListener('click', closeSidebar);
     }
+  }
 
-    function setMode(mode) {
-      document.body.classList.remove('dark-mode', 'light-mode', 'terminal-mode');
-      if (mode === 'dark') {
-        document.body.classList.add('dark-mode');
-      } else if (mode === 'light') {
-        // light mode default
-      } else if (mode === 'terminal') {
-        document.body.classList.add('terminal-mode');
-      }
+  window.addEventListener('scroll', () => {
+    const hamburger = document.getElementById('hamburger');
+    if (window.scrollY > 50) {
+      hamburger.classList.add('hidden');
+      closeSidebar();
+    } else {
+      hamburger.classList.remove('hidden');
     }
-
-    function copyLink(link, btnElement) {
-      navigator.clipboard.writeText(link).then(() => {
-        btnElement.textContent = "Copied";
-        btnElement.style.backgroundColor = "#008000";
-        setTimeout(() => {
-          btnElement.textContent = "Copy";
-          btnElement.style.backgroundColor = "#28a745";
-        }, 2000);
-      }).catch(err => {
-        alert("Ndodhi një gabim: " + err);
-      });
-    }
-
-    function shfaqListat() {
-      document.getElementById("iptv").style.display = "block";
-      document.getElementById("iptv").scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function shfaqInfo() {
-      document.getElementById("infoBox").style.display = "block";
-    }
-
-    function mbyllInfo() {
-      document.getElementById("infoBox").style.display = "none";
-    }
-  </script>
-
+  });
+</script>
 </body>
 </html>
