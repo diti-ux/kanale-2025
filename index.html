@@ -99,8 +99,9 @@
       width: 100%;
       height: 100%;
       background-size: cover;
+      background-position: center;
       border-radius: 50%;
-      animation: rotate 30s linear infinite;
+      animation: rotateBG 200s linear infinite;
     }
 
     .planet-container .night {
@@ -118,12 +119,12 @@
       background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg');
       z-index: 3;
       opacity: 0.5;
-      animation-duration: 100s;
+      animation-duration: 400s;
     }
 
-    @keyframes rotate {
-      from { background-position: 0 0; }
-      to { background-position: 100% 0; }
+    @keyframes rotateBG {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000% 0; }
     }
 
     .iptv-list {
@@ -238,7 +239,6 @@
   </div>
 
   <script>
-    // Vendos mode sipas localStorage
     window.onload = function() {
       let mode = localStorage.getItem('mode');
       if (mode === 'light') {
