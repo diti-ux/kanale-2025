@@ -198,7 +198,7 @@
       <div class="layer clouds"></div>
     </div>
 
-    <button class="btn-primary" onclick="shfaqListat()" style="font-weight: bold;">Shfaq Listat</button>
+    <button class="btn-primary" onclick="shfaqListat()" style="font-weight: bold;">Show Lists</button>
   </div>
 
   <div class="iptv-list" id="iptv">
@@ -210,20 +210,20 @@
     <div id="infoBox" style="display: none; margin-top: 20px; padding: 15px; background-color: #d0ff00; color: #000; border-radius: 8px; text-align: center;">
       <span style="font-weight: bold;">❗ Listat IPTV përditësohen çdo 1 javë. ❗</span>
       <br><br>
-      <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Mbyll</button>
+      <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
     </div>
 
     <div class="iptv-item">
       <span class="link-text" title="http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts">http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts</span>
-      <button onclick="copyLink('http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts')" style="font-weight: bold;">Kopjo</button>
+      <button onclick="copyLink('http://jg1.ddns.me:5050/get.php?username=agronidrenas2&password=H7nKtbwTut&type=m3u&output=ts')" style="font-weight: bold;">Copy</button>
     </div>
     <div class="iptv-item">
       <span class="link-text" title="http://premiumstvs.net:8080/get.php?username=hKDQtGsE2233&password=kCE22S7a932123&type=m3u&output=ts">http://premiumstvs.net:8080/get.php?username=hKDQtGsE2233&password=kCE22S7a932123&type=m3u&output=ts</span>
-      <button onclick="copyLink('http://premiumstvs.net:8080/get.php?username=hKDQtGsE2233&password=kCE22S7a932123&type=m3u&output=ts')" style="font-weight: bold;">Kopjo</button>
+      <button onclick="copyLink('http://premiumstvs.net:8080/get.php?username=hKDQtGsE2233&password=kCE22S7a932123&type=m3u&output=ts')" style="font-weight: bold;">Copy</button>
     </div>
     <div class="iptv-item">
       <span class="link-text" title="http://7ven.online:8080/get.php?username=JetonQori&password=DTZXG3PkEv&type=m3u_plus">http://7ven.online:8080/get.php?username=JetonQori&password=DTZXG3PkEv&type=m3u_plus</span>
-      <button onclick="copyLink('http://7ven.online:8080/get.php?username=JetonQori&password=DTZXG3PkEv&type=m3u_plus')" style="font-weight: bold;">Kopjo</button>
+      <button onclick="copyLink('http://7ven.online:8080/get.php?username=JetonQori&password=DTZXG3PkEv&type=m3u_plus')" style="font-weight: bold;">Copy</button>
     </div>
   </div>
 
@@ -243,7 +243,7 @@
       temp.select();
       document.execCommand("copy");
       document.body.removeChild(temp);
-      alert("Linku u kopjua!");
+      alert("Copied");
     }
 
     function shfaqListat() {
