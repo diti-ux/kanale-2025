@@ -80,6 +80,49 @@
       background: #0056b3;
     }
 
+    /* Globi që rrotullohet */
+    .planet-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 40px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .planet-container .layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      border-radius: 50%;
+      animation: rotate 60s linear infinite;
+    }
+
+    .planet-container .night {
+      background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
+      z-index: 1;
+    }
+
+    .planet-container .day {
+      background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg');
+      z-index: 2;
+      mix-blend-mode: screen;
+    }
+
+    .planet-container .clouds {
+      background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg');
+      z-index: 3;
+      opacity: 0.5;
+      animation-duration: 100s;
+    }
+
+    @keyframes rotate {
+      from { background-position: 0 0; }
+      to { background-position: -100% 0; }
+    }
+
     .iptv-list {
       max-width: 900px;
       margin: 40px auto;
@@ -133,56 +176,11 @@
     .footer {
       text-align: center;
       padding: 30px;
-      transition: color 0.3s;
-    }
-
-    body.dark-mode .footer {
-      color: white;
-    }
-
-    body:not(.dark-mode) .footer {
-      color: black;
-    }
-
-    .chart-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .ca-form {
-      max-width: 600px;
-      margin: 20px auto;
-      display: flex;
-      gap: 10px;
-    }
-
-    .ca-form input {
-      flex: 1;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #c8c8c8;
-      font-size: 16px;
-    }
-
-    .ca-form button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      background: var(--primary);
-      color: rgb(255, 255, 255);
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .ca-form button:hover {
-      background: #0056b3;
+      color: gray;
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
 
   <div class="navbar">
     <h1>ShqipTV+</h1>
@@ -192,16 +190,15 @@
   <div class="hero">
     <h2>kërçova IPTV</h2>
     <p style="font-weight: bold;">Shiko kanale pa pagesë në cilësi të lartë</p>
+
+    <!-- Globi që rrotullohet -->
+    <div class="planet-container">
+      <div class="layer night"></div>
+      <div class="layer day"></div>
+      <div class="layer clouds"></div>
+    </div>
+
     <button class="btn-primary" onclick="shfaqListat()" style="font-weight: bold;">Shfaq Listat</button>
-  </div>
-
-  <div class="ca-form">
-    <input type="text" id="caInput" placeholder="Ngjit këtu (kontratë Adresën e coinit)" />
-    <button onclick="ndryshoChart()">Shfaq Koinin</button>
-  </div>
-
-  <div class="chart-container">
-    <iframe id="dexChart" src="https://dexscreener.com/solana/63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9?embed=1&theme=dark" width="100%" height="600" frameborder="0"></iframe>
   </div>
 
   <div class="iptv-list" id="iptv">
@@ -235,10 +232,6 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("dark-mode");
-    });
-
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
     }
@@ -264,16 +257,6 @@
 
     function mbyllInfo() {
       document.getElementById("infoBox").style.display = "none";
-    }
-
-    function ndryshoChart() {
-      let ca = document.getElementById('caInput').value.trim();
-      if (ca === '') {
-        alert('Vendos CA të coin-it!');
-        return;
-      }
-      let chartUrl = `https://dexscreener.com/solana/${ca}?embed=1&theme=dark`;
-      document.getElementById('dexChart').src = chartUrl;
     }
   </script>
 
