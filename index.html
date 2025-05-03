@@ -9,9 +9,11 @@
     :root {
       --primary: #007bff;
       --background: #f4f6f9;
-      --dark-bg: #1e1e2f;
+      --dark-bg: #000000;
+      --terminal-bg: #000000;
       --text-dark: #ffffff;
       --text-light: #333;
+      --terminal-text: #00ff00;
     }
 
     body {
@@ -25,6 +27,11 @@
     body.dark-mode {
       background: var(--dark-bg);
       color: var(--text-dark);
+    }
+
+    body.terminal-mode {
+      background: var(--terminal-bg);
+      color: var(--terminal-text);
     }
 
     .navbar {
@@ -49,6 +56,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      margin-left: 10px;
     }
 
     .hero {
@@ -81,6 +89,11 @@
 
     .btn-primary:hover {
       background: #0056b3;
+    }
+
+    body.terminal-mode .btn-primary {
+      background: #00ff00;
+      color: #000;
     }
 
     .planet-container {
@@ -138,7 +151,13 @@
     }
 
     body.dark-mode .iptv-list {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(78, 78, 78, 0.9);
+      color: #ffffff;
+    }
+
+    body.terminal-mode .iptv-list {
+      background: rgba(0, 255, 0, 0.1);
+      color: var(--terminal-text);
     }
 
     .iptv-item {
@@ -152,8 +171,13 @@
     }
 
     body.dark-mode .iptv-item {
-      background: #2e3b4e;
+      background: #111111;
       color: white;
+    }
+
+    body.terminal-mode .iptv-item {
+      background: rgba(176, 155, 155, 0.2);
+      color: var(--terminal-text);
     }
 
     .link-text {
@@ -165,7 +189,7 @@
     }
 
     .iptv-item button {
-      background: #28a745;
+      background:#28a745;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -184,6 +208,29 @@
       padding: 30px;
       color: gray;
     }
+
+    body.dark-mode .footer {
+      color: #777;
+    }
+
+    body.terminal-mode .footer {
+      color: var(--terminal-text);
+    }
+
+    #infoBox {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d0ff00;
+      color: #000;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    body.terminal-mode #infoBox {
+      background-color: #00a600;
+      color: #000;
+    }
   </style>
 </head>
 
@@ -191,7 +238,11 @@
 
   <div class="navbar">
     <h1>ShqipTV+</h1>
-    <button id="modeBtn" onclick="toggleMode()" aria-label="Ndrysho Dark/Light Mode">Light Mode</button>
+    <div>
+      <button onclick="setMode('light')">Light Mode</button>
+      <button onclick="setMode('dark')">Dark Mode</button>
+      <button onclick="setMode('terminal')">Terminal Mode</button>
+    </div>
   </div>
 
   <div class="hero">
@@ -213,7 +264,7 @@
       <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
     </div>
 
-    <div id="infoBox" style="display: none; margin-top: 20px; padding: 15px; background-color: #d0ff00; color: #000; border-radius: 8px; text-align: center;">
+    <div id="infoBox">
       <span style="font-weight: bold;">❗ Listat IPTV përditësohen çdo 1 javë. ❗</span>
       <br><br>
       <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
@@ -239,22 +290,20 @@
   </div>
 
   <script>
+    // Dark mode default, nuk përdor më localStorage
     window.onload = function() {
-      let mode = localStorage.getItem('mode');
-      if (mode === 'light') {
-        document.body.classList.remove('dark-mode');
-        document.getElementById('modeBtn').textContent = 'Dark Mode';
-      } else {
-        document.body.classList.add('dark-mode');
-        document.getElementById('modeBtn').textContent = 'Light Mode';
-      }
+      setMode('dark');
     }
 
-    function toggleMode() {
-      document.body.classList.toggle("dark-mode");
-      let isDark = document.body.classList.contains("dark-mode");
-      localStorage.setItem('mode', isDark ? 'dark' : 'light');
-      document.getElementById('modeBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    function setMode(mode) {
+      document.body.classList.remove('dark-mode', 'light-mode', 'terminal-mode');
+      if (mode === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else if (mode === 'light') {
+        // light mode default (pa klasë dark)
+      } else if (mode === 'terminal') {
+        document.body.classList.add('terminal-mode');
+      }
     }
 
     function copyLink(link, btnElement) {
