@@ -1,22 +1,439 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
-  <meta charset="UTF-8" />
-  <title>Regjistrimi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShqipTV+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial; background: #f0f0f0; padding: 50px; }
-    .form-container { background: white; padding: 20px; border-radius: 10px; width: 300px; margin: auto; }
-    input, button { width: 100%; padding: 10px; margin-top: 10px; }
+    :root {
+      --primary: #007bff;
+      --background: #f4f6f9;
+      --dark-bg: #000000;
+      --terminal-bg: #000000;
+      --text-dark: #ffffff;
+      --text-light: #333;
+      --terminal-text: #00ff00;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--background);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--text-dark);
+    }
+
+    body.terminal-mode {
+      background: var(--terminal-bg);
+      color: var(--terminal-text);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+
+    body.terminal-mode .btn-primary {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .planet-container {
+      position: relative;
+      width: 80%;
+      max-width: 300px;
+      aspect-ratio: 1/1;
+      margin: 40px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 22px rgba(108, 169, 255, 0.7);
+    }
+
+    body.terminal-mode .planet-container {
+      box-shadow: 0 0 15px #00ff00;
+    }
+
+    .planet-container .layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      animation: rotateBG 550s linear infinite;
+    }
+
+    .planet-container .night {
+      background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
+      z-index: 1;
+    }
+
+    .planet-container .day {
+      background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg');
+      z-index: 2;
+      mix-blend-mode: screen;
+    }
+
+    .planet-container .clouds {
+      background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg');
+      z-index: 3;
+      opacity: 0.5;
+      animation-duration: 300s;
+    }
+
+    @keyframes rotateBG {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000% 0; }
+    }
+
+    .iptv-list {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      display: none;
+    }
+
+    body.dark-mode .iptv-list {
+      background: rgba(78, 78, 78, 0.9);
+      color: #ffffff;
+    }
+
+    body.terminal-mode .iptv-list {
+      background: rgba(0, 255, 0, 0.1);
+      color: var(--terminal-text);
+    }
+
+    .iptv-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #e9ecef;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    body.dark-mode .iptv-item {
+      background: #111111;
+      color: white;
+    }
+
+    body.terminal-mode .iptv-item {
+      background: #000;
+      color: var(--terminal-text);
+    }
+
+    .link-text {
+      max-width: 70%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+    }
+
+    .iptv-item button {
+      background:#28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    body.terminal-mode .iptv-item button {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .iptv-item button:hover {
+      background: #218838;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: gray;
+    }
+
+    body.dark-mode .footer {
+      color: #777;
+    }
+
+    body.terminal-mode .footer {
+      color: #00ff00;
+    }
+
+    #infoBox {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d0ff00;
+      color: #000;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    body.terminal-mode #infoBox {
+      background-color: #00a600;
+      color: #000;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1000;
+      transition: opacity 0.3s;
+    }
+
+    .hamburger span {
+      height: 4px;
+      border-radius: 2px;
+      background: white;
+    }
+
+    .hamburger.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .navbar div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    #modeSidebar {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      z-index: 1000;
+      width: 250px;
+      font-size: 1.2em;
+      animation: fadeIn 0.3s ease;
+    }
+
+    #modeSidebar button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #modeSidebar button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
-<body>
-  <div class="form-container">
-    <h2>Regjistrohu</h2>
-    <form action="/submit" method="post">
-      <input type="text" name="username" placeholder="Emri i përdoruesit" required />
-      <input type="email" name="email" placeholder="Email-i" required />
-      <button type="submit">Dërgo</button>
-    </form>
+<body class="dark-mode">
+
+<div class="hamburger" id="hamburger" onclick="toggleSidebar(event)">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="navbar">
+  <h1>ShqipTV+</h1>
+</div>
+
+<div class="hero">
+  <h2>kërçova IPTV</h2>
+  <p>Shiko kanale pa pagesë në cilësi të lartë</p>
+  <div class="planet-container" aria-label="Globi që rrotullohet">
+    <div class="layer night"></div>
+    <div class="layer day"></div>
+    <div class="layer clouds"></div>
   </div>
+  <button class="btn-primary" onclick="shfaqListat()">Show Lists</button>
+</div>
+
+<div class="iptv-list" id="iptv">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+    <h2 style="margin: 0;">IPTV Lists</h2>
+    <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
+  </div>
+
+  <div id="infoBox">
+    <span style="font-weight: bold;">❗ Listat IPTV përditësohen çdo 1 javë. ❗</span><br><br>
+    <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
+  </div>
+
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user1&password=pass1</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user1&password=pass1', this)">Copy</button>
+  </div>
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user2&password=pass2</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user2&password=pass2', this)">Copy</button>
+  </div>
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user3&password=pass3</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user3&password=pass3', this)">Copy</button>
+  </div>
+</div>
+
+<div class="footer">
+  &copy; 2025 ShqipTV+ | Powered by Open IPTV
+</div>
+
+<script>
+  window.onload = function() {
+    setMode('dark');
+  }
+
+  function setMode(mode) {
+    document.body.classList.remove('dark-mode', 'light-mode', 'terminal-mode');
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+    } else if (mode === 'light') {
+      document.body.classList.add('light-mode');
+    } else if (mode === 'terminal') {
+      document.body.classList.add('terminal-mode');
+    }
+  }
+
+  function copyLink(link, btnElement) {
+    navigator.clipboard.writeText(link).then(() => {
+      btnElement.textContent = "Copied";
+      btnElement.style.backgroundColor = "#008000";
+      setTimeout(() => {
+        btnElement.textContent = "Copy";
+        btnElement.style.backgroundColor = "#28a745";
+      }, 2000);
+    }).catch(err => {
+      alert("Ndodhi një gabim: " + err);
+    });
+  }
+
+  function shfaqListat() {
+    document.getElementById("iptv").style.display = "block";
+    document.getElementById("iptv").scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function shfaqInfo() {
+    document.getElementById("infoBox").style.display = "block";
+  }
+
+  function mbyllInfo() {
+    document.getElementById("infoBox").style.display = "none";
+  }
+
+  function toggleSidebar(event) {
+    event.stopPropagation();
+
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger.classList.contains('hidden')) return;
+
+    const existingSidebar = document.getElementById('modeSidebar');
+    if (existingSidebar) {
+      existingSidebar.remove();
+      return;
+    }
+
+    const sidebar = document.createElement('div');
+    sidebar.id = 'modeSidebar';
+    sidebar.innerHTML = `
+      <button onclick="setMode('light')">Light Mode</button><br>
+      <button onclick="setMode('dark')">Dark Mode</button><br>
+      <button onclick="setMode('terminal')">Terminal Mode</button>
+    `;
+    document.body.appendChild(sidebar);
+    document.addEventListener('click', closeSidebar);
+  }
+
+  function closeSidebar(event) {
+    const sidebar = document.getElementById('modeSidebar');
+    if (sidebar && !sidebar.contains(event.target)) {
+      sidebar.remove();
+      document.removeEventListener('click', closeSidebar);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const hamburger = document.getElementById('hamburger');
+    if (window.scrollY > 50) {
+      hamburger.classList.add('hidden');
+      closeSidebar();
+    } else {
+      hamburger.classList.remove('hidden');
+    }
+  });
+</script>
 </body>
 </html>
