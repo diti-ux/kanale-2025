@@ -185,18 +185,18 @@
     }
   </style>
 </head>
+
 <body class="dark-mode">
 
   <div class="navbar">
     <h1>ShqipTV+</h1>
-    <button onclick="toggleMode()" aria-label="Ndrysho në Dark ose Light Mode">Dark/Light Mode</button>
+    <button id="modeBtn" onclick="toggleMode()" aria-label="Ndrysho Dark/Light Mode">Light Mode</button>
   </div>
 
   <div class="hero">
     <h2>kërçova IPTV</h2>
     <p>Shiko kanale pa pagesë në cilësi të lartë</p>
 
-    <!-- Globi që rrotullohet -->
     <div class="planet-container" aria-label="Globi që rrotullohet">
       <div class="layer night"></div>
       <div class="layer day"></div>
@@ -218,7 +218,6 @@
       <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
     </div>
 
-    <!-- Lista IPTV -->
     <div class="iptv-item">
       <span class="link-text" title="Kopjo listën tek butoni">http://server.com/get.php?username=user1&password=pass1</span>
       <button onclick="copyLink('http://server.com/get.php?username=user1&password=pass1', this)">Copy</button>
@@ -239,17 +238,32 @@
   </div>
 
   <script>
+    // Vendos mode sipas localStorage
+    window.onload = function() {
+      let mode = localStorage.getItem('mode');
+      if (mode === 'light') {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('modeBtn').textContent = 'Dark Mode';
+      } else {
+        document.body.classList.add('dark-mode');
+        document.getElementById('modeBtn').textContent = 'Light Mode';
+      }
+    }
+
     function toggleMode() {
       document.body.classList.toggle("dark-mode");
+      let isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem('mode', isDark ? 'dark' : 'light');
+      document.getElementById('modeBtn').textContent = isDark ? 'Light Mode' : 'Dark Mode';
     }
 
     function copyLink(link, btnElement) {
       navigator.clipboard.writeText(link).then(() => {
         btnElement.textContent = "Copied";
-        btnElement.style.backgroundColor = "#008000"; // ndryshim ngjyre kur kopjohet
+        btnElement.style.backgroundColor = "#008000";
         setTimeout(() => {
           btnElement.textContent = "Copy";
-          btnElement.style.backgroundColor = "#008000"; // rikthehet ngjyra
+          btnElement.style.backgroundColor = "#28a745";
         }, 2000);
       }).catch(err => {
         alert("Ndodhi një gabim: " + err);
