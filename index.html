@@ -231,6 +231,19 @@
       background-color: #00a600;
       color: #000;
     }
+
+    /* Responsive: për telefon */
+    @media (max-width: 600px) {
+      .navbar div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar button {
+        margin-left: 0;
+      }
+    }
   </style>
 </head>
 
@@ -290,7 +303,6 @@
   </div>
 
   <script>
-    // Dark mode default, nuk përdor më localStorage
     window.onload = function() {
       setMode('dark');
     }
@@ -300,7 +312,7 @@
       if (mode === 'dark') {
         document.body.classList.add('dark-mode');
       } else if (mode === 'light') {
-        // light mode default (pa klasë dark)
+        // light mode default
       } else if (mode === 'terminal') {
         document.body.classList.add('terminal-mode');
       }
