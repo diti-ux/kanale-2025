@@ -396,16 +396,13 @@
 
   function toggleSidebar(event) {
     event.stopPropagation();
-
     const hamburger = document.getElementById('hamburger');
     if (hamburger.classList.contains('hidden')) return;
-
     const existingSidebar = document.getElementById('modeSidebar');
     if (existingSidebar) {
       existingSidebar.remove();
       return;
     }
-
     const sidebar = document.createElement('div');
     sidebar.id = 'modeSidebar';
     sidebar.innerHTML = `
@@ -434,6 +431,53 @@
       hamburger.classList.remove('hidden');
     }
   });
+
+  function vendosPikenNeGlobe(lat, lon) {
+    const container = document.querySelector('.planet-container');
+    const r = container.offsetWidth / 2;
+
+    const x = r + r * Math.cos(lat * Math.PI / 180) * Math.sin(lon * Math.PI / 180);
+    const y = r - r * Math.sin(lat * Math.PI / 180);
+
+    const pika = document.createElement('div');
+    pika.style.position = 'absolute';
+    pika.style.left = ${x}px;
+    pika.style.top = ${y}px;
+    pika.style.transform = 'translate(-50%, -50%)';
+    pika.style.width = '12px';
+    pika.style.height = '12px';
+    pika.style.borderRadius = '50%';
+    pika.style.backgroundColor = 'lime';
+    pika.style.zIndex = 999;
+
+    const label = document.createElement('div');
+    label.textContent = "You are here";
+    label.style.position = 'absolute';
+    label.style.left = ${x}px;
+    label.style.top = ${y - 20}px;
+    label.style.transform = 'translate(-50%, -50%)';
+    label.style.color = 'lime';
+    label.style.fontSize = '12px';
+    label.style.fontWeight = 'bold';
+
+    container.appendChild(pika);
+    container.appendChild(label);
+  }
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        vendosPikenNeGlobe(lat, lon);
+      },
+      err => {
+        console.warn("Nuk mund të merret lokacioni: " + err.message);
+      }
+    );
+  } else {
+    console.warn("Geolocation nuk mbështetet në këtë shfletues.");
+  }
 </script>
 </body>
 </html>
