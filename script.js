@@ -5,12 +5,9 @@ window.onload = function() {
 
 function setMode(mode) {
     document.body.classList.remove('dark-mode', 'light-mode');
-    if (mode === 'dark') {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-    } else if (mode === 'light') {
-        document.body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
+    if (mode === 'dark' || mode === 'light') {
+        document.body.classList.add(`${mode}-mode`);
+        localStorage.setItem('theme', mode);
     }
 }
 
@@ -28,8 +25,9 @@ function copyLink(link, btnElement) {
 }
 
 function shfaqListat() {
-    document.getElementById("iptv").style.display = "block";
-    document.getElementById("iptv").scrollIntoView({ behavior: 'smooth' });
+    const iptvElement = document.getElementById("iptv");
+    iptvElement.style.display = "block";
+    iptvElement.scrollIntoView({ behavior: 'smooth' });
 }
 
 function shfaqInfo() {
