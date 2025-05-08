@@ -2,61 +2,54 @@
     --primary: #007bff;
     --background: #f4f6f9;
     --dark-bg: #000000;
-    --terminal-bg: #000000;
     --text-dark: #ffffff;
     --text-light: #333;
-    --terminal-text: #00ff00;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background: var(--background);
     color: var(--text-light);
     transition: all 0.3s ease;
-  }
-  
-  body.dark-mode {
+}
+
+body.dark-mode {
     background: var(--dark-bg);
     color: var(--text-dark);
-  }
-  
-  body.terminal-mode {
-    background: var(--terminal-bg);
-    color: var(--terminal-text);
-  }
-  
-  .navbar {
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background: var(--primary);
     color: #fff;
-  }
-  
-  .navbar h1 {
+}
+
+.navbar h1 {
     margin: 0;
     font-size: 1.5em;
-  }
-  
-  .hero {
+}
+
+.hero {
     text-align: center;
     padding: 60px 20px;
-  }
-  
-  .hero h2 {
+}
+
+.hero h2 {
     font-size: 2em;
     margin-bottom: 10px;
-  }
-  
-  .hero p {
+}
+
+.hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
     font-weight: bold;
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     background: var(--primary);
     color: #fff;
     padding: 12px 24px;
@@ -66,18 +59,13 @@
     cursor: pointer;
     transition: background 0.3s;
     font-weight: bold;
-  }
-  
-  .btn-primary:hover {
+}
+
+.btn-primary:hover {
     background: #0056b3;
-  }
-  
-  body.terminal-mode .btn-primary {
-    background: #00ff00;
-    color: #000;
-  }
-  
-  .planet-container {
+}
+
+.planet-container {
     position: relative;
     width: 80%;
     max-width: 300px;
@@ -86,13 +74,9 @@
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 0 22px rgba(108, 169, 255, 0.7);
-  }
-  
-  body.terminal-mode .planet-container {
-    box-shadow: 0 0 15px #00ff00;
-  }
-  
-  .planet-container .layer {
+}
+
+.planet-container .layer {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -100,32 +84,32 @@
     background-position: center;
     border-radius: 50%;
     animation: rotateBG 550s linear infinite;
-  }
-  
-  .planet-container .night {
+}
+
+.planet-container .night {
     background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg');
     z-index: 1;
-  }
-  
-  .planet-container .day {
+}
+
+.planet-container .day {
     background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg');
     z-index: 2;
     mix-blend-mode: screen;
-  }
-  
-  .planet-container .clouds {
+}
+
+.planet-container .clouds {
     background-image: url('https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg');
     z-index: 3;
     opacity: 0.5;
     animation-duration: 300s;
-  }
-  
-  @keyframes rotateBG {
+}
+
+@keyframes rotateBG {
     0% { background-position: 0 0; }
     100% { background-position: 1000% 0; }
-  }
-  
-  .iptv-list {
+}
+
+.iptv-list {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
@@ -133,19 +117,14 @@
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
     display: none;
-  }
-  
-  body.dark-mode .iptv-list {
+}
+
+body.dark-mode .iptv-list {
     background: rgba(78, 78, 78, 0.9);
     color: #ffffff;
-  }
-  
-  body.terminal-mode .iptv-list {
-    background: rgba(0, 255, 0, 0.1);
-    color: var(--terminal-text);
-  }
-  
-  .iptv-item {
+}
+
+.iptv-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -153,27 +132,22 @@
     padding: 15px;
     margin: 10px 0;
     border-radius: 8px;
-  }
-  
-  body.dark-mode .iptv-item {
+}
+
+body.dark-mode .iptv-item {
     background: #111111;
     color: white;
-  }
-  
-  body.terminal-mode .iptv-item {
-    background: #000;
-    color: var(--terminal-text);
-  }
-  
-  .link-text {
+}
+
+.link-text {
     max-width: 70%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
-  }
-  
-  .iptv-item button {
+}
+
+.iptv-item button {
     background: #28a745;
     color: white;
     border: none;
@@ -182,32 +156,23 @@
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s;
-  }
-  
-  body.terminal-mode .iptv-item button {
-    background: #00ff00;
-    color: #000;
-  }
-  
-  .iptv-item button:hover {
+}
+
+.iptv-item button:hover {
     background: #218838;
-  }
-  
-  .footer {
+}
+
+.footer {
     text-align: center;
     padding: 30px;
     color: gray;
-  }
-  
-  body.dark-mode .footer {
+}
+
+body.dark-mode .footer {
     color: #777;
-  }
-  
-  body.terminal-mode .footer {
-    color: #00ff00;
-  }
-  
-  #infoBox {
+}
+
+#infoBox {
     display: none;
     margin-top: 20px;
     padding: 15px;
@@ -215,14 +180,9 @@
     color: #000;
     border-radius: 8px;
     text-align: center;
-  }
-  
-  body.terminal-mode #infoBox {
-    background-color: #00a600;
-    color: #000;
-  }
-  
-  .hamburger {
+}
+
+.hamburger {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -234,28 +194,28 @@
     cursor: pointer;
     z-index: 1000;
     transition: opacity 0.3s;
-  }
-  
-  .hamburger span {
+}
+
+.hamburger span {
     height: 4px;
     border-radius: 2px;
     background: white;
-  }
-  
-  .hamburger.hidden {
+}
+
+.hamburger.hidden {
     opacity: 0;
     pointer-events: none;
-  }
-  
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .navbar div {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
-  }
-  
-  #modeSidebar {
+}
+
+#modeSidebar {
     position: fixed;
     top: 80px;
     right: 20px;
@@ -268,9 +228,9 @@
     width: 250px;
     font-size: 1.2em;
     animation: fadeIn 0.3s ease;
-  }
-  
-  #modeSidebar button {
+}
+
+#modeSidebar button {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -280,14 +240,13 @@
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-  }
-  
-  #modeSidebar button:hover {
+}
+
+#modeSidebar button:hover {
     background: #0056b3;
-  }
-  
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-  
+}
