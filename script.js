@@ -70,10 +70,18 @@ function closeSidebar(event) {
 
 window.addEventListener('scroll', () => {
     const hamburger = document.getElementById('hamburger');
-    if (window.scrollY > 50) {
+    const sidebar = document.getElementById('modeSidebar');
+    
+    // Fsheh hamburger dhe sidebar kur skrollohet poshtë më shumë se 50px
+    if (window.scrollY > 20) {
         hamburger.classList.add('hidden');
-        closeSidebar();
+        if (sidebar) {
+            sidebar.classList.add('hidden');
+        }
     } else {
         hamburger.classList.remove('hidden');
+        if (sidebar) {
+            sidebar.classList.remove('hidden');
+        }
     }
 });
