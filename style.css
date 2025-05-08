@@ -176,10 +176,20 @@ body.dark-mode .footer {
     display: none;
     margin-top: 20px;
     padding: 15px;
-    background-color: #d0ff00;
-    color: #000;
     border-radius: 8px;
     text-align: center;
+}
+
+/* Në dark mode */
+body.dark-mode #infoBox {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    color: #000000; /* Teksti i zi */
+}
+
+/* Në light mode */
+body.light-mode #infoBox {
+    background-color: #000000; /* Sfondi i zi */
+    color: #ffffff; /* Teksti i bardhë */
 }
 
 .hamburger {
