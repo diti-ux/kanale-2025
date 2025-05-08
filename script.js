@@ -1,13 +1,23 @@
 window.onload = function() {
-    const savedMode = localStorage.getItem('theme');
-    setMode(savedMode ? savedMode : 'dark');
+    // Merr temën nga localStorage
+    const savedMode = localStorage.getItem('theme');  
+    
+    // Nëse nuk ka temë të ruajtur, vendosim dark mode si temën e parazgjedhur
+    if (!savedMode) {
+        setMode('dark');  // Vendosim dark mode si temën e parazgjedhur
+    } else {
+        setMode(savedMode);  // Vendosim temën që është ruajtur
+    }
 }
 
 function setMode(mode) {
+    // Heqim të dyja mode-t nga body
     document.body.classList.remove('dark-mode', 'light-mode');
+    
+    // Shtohet mode-ja e zgjedhur (dark ose light)
     if (mode === 'dark' || mode === 'light') {
         document.body.classList.add(`${mode}-mode`);
-        localStorage.setItem('theme', mode);
+        localStorage.setItem('theme', mode);  // Ruajmë temën në localStorage
     }
 }
 
