@@ -1,5 +1,5 @@
 :root {
-    --primary: #007bff;
+    --primary: #1aad00;
     --background: #f4f6f9;
     --dark-bg: #000000;
     --text-dark: #ffffff;
@@ -62,7 +62,7 @@ body.dark-mode {
 }
 
 .btn-primary:hover {
-    background: #0056b3;
+    background: #41db26;
 }
 
 .planet-container {
@@ -250,7 +250,7 @@ body.light-mode #infoBox {
 }
 
 #modeSidebar button:hover {
-    background: #0056b3;
+    background: #41db26;
 }
 
 @keyframes fadeIn {
