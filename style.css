@@ -265,3 +265,81 @@ body.light-mode #infoBox {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Mobile Styles (Phone/Tablets) */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .planet-container {
+        width: 90%;
+        max-width: 250px;
+        margin: 20px auto;
+    }
+
+    .iptv-list {
+        padding: 10px;
+    }
+
+    .iptv-item {
+        padding: 10px;
+    }
+
+    .footer {
+        font-size: 0.9em;
+        padding: 20px;
+    }
+
+    .hamburger {
+        top: 15px;
+        right: 15px;
+    }
+
+    #modeSidebar {
+        width: 200px;
+        font-size: 1em;
+        top: 60px;
+    }
+}
+
+/* Very small screens (e.g., Mobile Portrait) */
+@media only screen and (max-width: 480px) {
+    .navbar h1 {
+        font-size: 1.2em;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .planet-container {
+        max-width: 200px;
+    }
+
+    .iptv-item {
+        padding: 8px;
+    }
+
+    #modeSidebar {
+        width: 180px;
+    }
+
+    .footer {
+        font-size: 0.8em;
+    }
+}
