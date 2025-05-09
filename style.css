@@ -47,6 +47,16 @@ body.dark-mode {
     font-size: 1.2em;
     margin-bottom: 30px;
     font-weight: bold;
+    animation: fadeOutIn 3s ease-in-out infinite;
+}
+
+@keyframes fadeOutIn {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 .btn-primary {
@@ -180,16 +190,14 @@ body.dark-mode .footer {
     text-align: center;
 }
 
-/* Në dark mode */
 body.dark-mode #infoBox {
-    background-color: #ffffff; /* Sfondi i bardhë */
-    color: #000000; /* Teksti i zi */
+    background-color: #ffffff;
+    color: #000000;
 }
 
-/* Në light mode */
 body.light-mode #infoBox {
-    background-color: #000000; /* Sfondi i zi */
-    color: #ffffff; /* Teksti i bardhë */
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .hamburger {
