@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Market Data & Analytics - The Gooner Memecoin</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fthegooner6366back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background text-text-primary font-inter">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gradient">GOONER</h1>
+                        <p class="text-xs text-text-secondary">Memecoin</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="homepage_landing.html" class="text-text-secondary hover:text-primary transition-colors">Home</a>
+                    <a href="token_information_tokenomics.html" class="text-text-secondary hover:text-primary transition-colors">Tokenomics</a>
+                    <a href="how_to_buy_guide.html" class="text-text-secondary hover:text-primary transition-colors">How to Buy</a>
+                    <a href="live_market_data_analytics.html" class="text-text-primary hover:text-primary transition-colors">Analytics</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-surface-hover hover:bg-primary/20 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Wallet Connect Button -->
+                    <button class="gradient-border-btn hidden sm:flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 18v1a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v1M15 10l-4-4m0 0l-4 4m4-4v12"/>
+                        </svg>
+                        <span>Connect Wallet</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-surface-hover">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden border-t border-border">
+                <div class="py-4 space-y-2">
+                    <a href="homepage_landing.html" class="block px-4 py-2 text-text-secondary hover:bg-surface-hover rounded-lg">Home</a>
+                    <a href="token_information_tokenomics.html" class="block px-4 py-2 text-text-secondary hover:bg-surface-hover rounded-lg">Tokenomics</a>
+                    <a href="how_to_buy_guide.html" class="block px-4 py-2 text-text-secondary hover:bg-surface-hover rounded-lg">How to Buy</a>
+                    <a href="live_market_data_analytics.html" class="block px-4 py-2 text-text-primary hover:bg-surface-hover rounded-lg">Analytics</a>
+                    <button class="w-full mt-4 bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition-colors">
+                        Connect Wallet
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="py-8 bg-ambient">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gradient mb-4">Live Market Data & Analytics</h1>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">Real-time GOONER token analytics and trading insights for active investors and community members</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Price Ticker -->
+    <section class="py-6 bg-surface/50 border-b border-border">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
+                <!-- Current Price -->
+                <div class="flex items-center space-x-6">
+                    <div class="text-center">
+                        <p class="text-sm text-text-secondary">Current Price</p>
+                        <p class="text-3xl font-bold text-success" id="live-price">$0.00234</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm text-text-secondary">24h Change</p>
+                        <p class="text-xl font-semibold text-success" id="price-change">+15.67%</p>
+                    </div>
+                    <div class="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                    <span class="text-sm text-success">Live</span>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="flex items-center space-x-8">
+                    <div class="text-center">
+                        <p class="text-sm text-text-secondary">Market Cap</p>
+                        <p class="text-lg font-semibold text-primary">$2.14M</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm text-text-secondary">24h Volume</p>
+                        <p class="text-lg font-semibold text-secondary">$456K</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm text-text-secondary">Holders</p>
+                        <p class="text-lg font-semibold text-accent">24,567</p>
+                    </div>
+                </div>
+
+                <!-- Alert Settings -->
+                <button id="alert-btn" class="bg-warning hover:bg-warning-600 text-background px-4 py-2 rounded-lg font-medium transition-colors interactive-element">
+                    <span class="flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                        <span>Set Alerts</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Analytics Dashboard -->
+    <section class="py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                <!-- Primary Chart Section -->
+                <div class="xl:col-span-2">
+                    <!-- Chart Controls -->
+                    <div class="data-card mb-6">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6">
+                            <div>
+                                <h2 class="text-2xl font-bold mb-2">$GOONER Price Chart</h2>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-3xl font-bold text-success">$0.00234</span>
+                                    <span class="text-success text-sm bg-success/20 px-2 py-1 rounded">+15.67% (24h)</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeframe Controls -->
+                            <div class="flex items-center space-x-2 mt-4 sm:mt-0">
+                                <button class="px-3 py-1 bg-primary text-white rounded-lg text-sm font-medium">1H</button>
+                                <button class="px-3 py-1 bg-surface-hover text-text-secondary rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors">24H</button>
+                                <button class="px-3 py-1 bg-surface-hover text-text-secondary rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors">7D</button>
+                                <button class="px-3 py-1 bg-surface-hover text-text-secondary rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors">30D</button>
+                            </div>
+                        </div>
+
+                        <!-- Chart Container -->
+                        <div class="h-96 bg-background/50 rounded-lg relative overflow-hidden" id="main-chart">
+                            <!-- Chart SVG -->
+                            <svg class="w-full h-full" viewBox="0 0 800 400">
+                                <!-- Grid Lines -->
+                                <defs>
+                                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#grid)"/>
+                                
+                                <!-- Price Line -->
+                                <path d="M 50 300 Q 150 250 200 200 T 350 180 T 500 160 T 650 140 T 750 120" fill="none" stroke="url(#priceGradient)" stroke-width="3"/>
+                                
+                                <!-- Area Fill -->
+                                <path d="M 50 300 Q 150 250 200 200 T 350 180 T 500 160 T 650 140 T 750 120 L 750 380 L 50 380 Z" fill="url(#areaGradient)" opacity="0.3"/>
+                                
+                                <!-- Gradients -->
+                                <defs>
+                                    <linearGradient id="priceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#9945FF"/>
+                                        <stop offset="100%" style="stop-color:#14F195"/>
+                                    </linearGradient>
+                                    <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#9945FF;stop-opacity:0.3"/>
+                                        <stop offset="100%" style="stop-color:#14F195;stop-opacity:0.1"/>
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Data Points -->
+                                <circle cx="200" cy="200" r="4" fill="#14F195" opacity="0.8"/>
+                                <circle cx="350" cy="180" r="4" fill="#14F195" opacity="0.8"/>
+                                <circle cx="500" cy="160" r="4" fill="#14F195" opacity="0.8"/>
+                                <circle cx="650" cy="140" r="4" fill="#14F195" opacity="0.8"/>
+                                <circle cx="750" cy="120" r="4" fill="#14F195" opacity="0.8"/>
+                            </svg>
+                            
+                            <!-- Chart Loading Overlay -->
+                            <div class="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center" id="chart-loading" style="display: none;">
+                                <div class="text-center">
+                                    <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                                    <p class="text-text-secondary">Updating chart data...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chart Tools -->
+                        <div class="flex flex-wrap items-center justify-between mt-4 gap-4">
+                            <div class="flex items-center space-x-4">
+                                <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+                                    </svg>
+                                    <span>Indicators</span>
+                                </button>
+                                <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                                    </svg>
+                                    <span>Volume</span>
+                                </button>
+                            </div>
+                            <button class="flex items-center space-x-2 bg-secondary hover:bg-secondary-600 text-background px-4 py-2 rounded-lg font-medium transition-colors interactive-element">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/>
+                                </svg>
+                                <span>Export Data</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Trading Volume Heatmap -->
+                    <div class="data-card">
+                        <h3 class="text-xl font-semibold mb-4">Trading Volume Heatmap</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <div class="h-16 bg-primary/60 rounded-lg flex items-center justify-center mb-2">
+                                    <span class="text-white font-semibold">Raydium</span>
+                                </div>
+                                <p class="text-sm text-text-secondary">$234K</p>
+                                <p class="text-xs text-success">+12.5%</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="h-16 bg-secondary/40 rounded-lg flex items-center justify-center mb-2">
+                                    <span class="text-white font-semibold">Orca</span>
+                                </div>
+                                <p class="text-sm text-text-secondary">$156K</p>
+                                <p class="text-xs text-success">+8.3%</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="h-16 bg-accent/30 rounded-lg flex items-center justify-center mb-2">
+                                    <span class="text-white font-semibold">Jupiter</span>
+                                </div>
+                                <p class="text-sm text-text-secondary">$89K</p>
+                                <p class="text-xs text-error">-2.1%</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="h-16 bg-warning/20 rounded-lg flex items-center justify-center mb-2">
+                                    <span class="text-background font-semibold">Others</span>
+                                </div>
+                                <p class="text-sm text-text-secondary">$45K</p>
+                                <p class="text-xs text-success">+5.7%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Analytics -->
+                <div class="space-y-6">
+                    <!-- Key Metrics -->
+                    <div class="data-card">
+                        <h3 class="text-xl font-semibold mb-4">Key Metrics</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Market Cap</span>
+                                <span class="font-semibold text-primary">$2,145,678</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">24h Volume</span>
+                                <span class="font-semibold text-secondary">$456,789</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Circulating Supply</span>
+                                <span class="font-semibold">1B GOONER</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Total Supply</span>
+                                <span class="font-semibold">1B GOONER</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Volatility Index</span>
+                                <span class="font-semibold text-warning">High (78%)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Holder Distribution -->
+                    <div class="data-card">
+                        <h3 class="text-xl font-semibold mb-4">Holder Distribution</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm text-text-secondary">Top 10 Holders</span>
+                                    <span class="text-sm font-semibold">23.5%</span>
+                                </div>
+                                <div class="w-full bg-surface-hover rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 23.5%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm text-text-secondary">Top 100 Holders</span>
+                                    <span class="text-sm font-semibold">45.2%</span>
+                                </div>
+                                <div class="w-full bg-surface-hover rounded-full h-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 45.2%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm text-text-secondary">Retail Holders</span>
+                                    <span class="text-sm font-semibold">31.3%</span>
+                                </div>
+                                <div class="w-full bg-surface-hover rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 31.3%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-sm text-text-secondary">Total Holders: <span class="font-semibold text-accent">24,567</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Whale Movements -->
+                    <div class="data-card">
+                        <h3 class="text-xl font-semibold mb-4">Recent Whale Movements</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3 p-3 bg-success/10 rounded-lg">
+                                <div class="w-2 h-2 bg-success rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium">Large Buy</p>
+                                    <p class="text-xs text-text-secondary">2.5M GOONER • 15 min ago</p>
+                                </div>
+                                <span class="text-sm font-semibold text-success">+$5,850</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-error/10 rounded-lg">
+                                <div class="w-2 h-2 bg-error rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium">Large Sell</p>
+                                    <p class="text-xs text-text-secondary">1.8M GOONER • 1 hour ago</p>
+                                </div>
+                                <span class="text-sm font-semibold text-error">-$4,212</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-primary/10 rounded-lg">
+                                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium">Transfer</p>
+                                    <p class="text-xs text-text-secondary">5.2M GOONER • 3 hours ago</p>
+                                </div>
+                                <span class="text-sm font-semibold text-primary">Transfer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Sentiment -->
+                    <div class="data-card">
+                        <h3 class="text-xl font-semibold mb-4">Social Sentiment</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    </svg>
+                                    <span class="text-sm">Twitter</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm font-semibold text-success">Bullish</span>
+                                    <div class="w-16 bg-surface-hover rounded-full h-2">
+                                        <div class="bg-success h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                                    </svg>
+                                    <span class="text-sm">Discord</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm font-semibold text-success">Positive</span>
+                                    <div class="w-16 bg-surface-hover rounded-full h-2">
+                                        <div class="bg-success h-2 rounded-full" style="width: 68%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center pt-2">
+                                <p class="text-sm text-text-secondary">Overall Sentiment: <span class="font-semibold text-success">Very Positive</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Book & Liquidity -->
+    <section class="py-8 bg-surface/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Order Book -->
+                <div class="data-card">
+                    <h3 class="text-xl font-semibold mb-4">Order Book</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Buy Orders -->
+                        <div>
+                            <h4 class="text-sm font-medium text-success mb-3">Buy Orders</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-success">$0.00235</span>
+                                    <span class="text-text-secondary">125.5K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-success">$0.00234</span>
+                                    <span class="text-text-secondary">89.2K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-success">$0.00233</span>
+                                    <span class="text-text-secondary">156.8K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-success">$0.00232</span>
+                                    <span class="text-text-secondary">203.4K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-success">$0.00231</span>
+                                    <span class="text-text-secondary">78.9K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sell Orders -->
+                        <div>
+                            <h4 class="text-sm font-medium text-error mb-3">Sell Orders</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-error">$0.00236</span>
+                                    <span class="text-text-secondary">67.3K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-error">$0.00237</span>
+                                    <span class="text-text-secondary">134.7K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-error">$0.00238</span>
+                                    <span class="text-text-secondary">92.1K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-error">$0.00239</span>
+                                    <span class="text-text-secondary">178.5K</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-error">$0.00240</span>
+                                    <span class="text-text-secondary">245.2K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liquidity Pool Depth -->
+                <div class="data-card">
+                    <h3 class="text-xl font-semibold mb-4">Liquidity Pool Depth</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-text-secondary">GOONER Pool</span>
+                                <span class="font-semibold">456.7M GOONER</span>
+                            </div>
+                            <div class="w-full bg-surface-hover rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-text-secondary">SOL Pool</span>
+                                <span class="font-semibold">1,234.5 SOL</span>
+                            </div>
+                            <div class="w-full bg-surface-hover rounded-full h-3">
+                                <div class="bg-secondary h-3 rounded-full" style="width: 58%"></div>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-border">
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Total Liquidity</span>
+                                <span class="font-semibold text-accent">$2.89M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Analytics -->
+    <section class="py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Advanced Analytics</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Price Correlation -->
+                <div class="data-card">
+                    <h3 class="text-lg font-semibold mb-4">Price Correlation</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">vs SOL</span>
+                            <span class="font-semibold text-success">+0.73</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">vs BTC</span>
+                            <span class="font-semibold text-warning">+0.45</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">vs ETH</span>
+                            <span class="font-semibold text-secondary">+0.62</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Indicators -->
+                <div class="data-card">
+                    <h3 class="text-lg font-semibold mb-4">Technical Indicators</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">RSI (14)</span>
+                            <span class="font-semibold text-warning">68.5</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">MACD</span>
+                            <span class="font-semibold text-success">Bullish</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Bollinger</span>
+                            <span class="font-semibold text-primary">Upper</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Sentiment -->
+                <div class="data-card">
+                    <h3 class="text-lg font-semibold mb-4">Market Sentiment</h3>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl font-bold text-success">78%</span>
+                        </div>
+                        <p class="text-sm text-text-secondary">Bullish Sentiment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gradient">GOONER</span>
+                    </div>
+                    <p class="text-text-secondary text-sm mb-4">The ultimate memecoin on Solana blockchain. Join the revolution!</p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="w-8 h-8 bg-surface-hover rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="w-8 h-8 bg-surface-hover rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="w-8 h-8 bg-surface-hover rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.404-5.965 1.404-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.888-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.357-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="homepage_landing.html" class="text-text-secondary hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="token_information_tokenomics.html" class="text-text-secondary hover:text-primary transition-colors">Tokenomics</a></li>
+                        <li><a href="how_to_buy_guide.html" class="text-text-secondary hover:text-primary transition-colors">How to Buy</a></li>
+                        <li><a href="live_market_data_analytics.html" class="text-text-secondary hover:text-primary transition-colors">Analytics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Whitepaper</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Roadmap</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Audit Report</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Disclaimer</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Risk Warning</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-8 text-center">
+                <p class="text-text-secondary text-sm">
+                    © 2025 The Gooner Memecoin. All Rights Reserved. | 
+                    <span class="text-warning">⚠️ High Risk Investment - Trade Responsibly</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Alert Modal -->
+    <div id="alert-modal" class="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="data-card max-w-md w-full">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold">Price Alerts</h3>
+                    <button id="close-alert-modal" class="text-text-secondary hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Price Above</label>
+                        <input type="number" step="0.00001" placeholder="0.00250" class="w-full bg-surface border border-border rounded-lg px-3 py-2 focus:border-primary focus:outline-none" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Price Below</label>
+                        <input type="number" step="0.00001" placeholder="0.00200" class="w-full bg-surface border border-border rounded-lg px-3 py-2 focus:border-primary focus:outline-none" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Volume Change</label>
+                        <select class="w-full bg-surface border border-border rounded-lg px-3 py-2 focus:border-primary focus:outline-none">
+                            <option>+50% increase</option>
+                            <option>+100% increase</option>
+                            <option>-50% decrease</option>
+                        </select>
+                    </div>
+                    <button class="w-full bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                        Set Alerts
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Alert modal functionality
+        const alertBtn = document.getElementById('alert-btn');
+        const alertModal = document.getElementById('alert-modal');
+        const closeAlertModal = document.getElementById('close-alert-modal');
+
+        alertBtn.addEventListener('click', () => {
+            alertModal.classList.remove('hidden');
+        });
+
+        closeAlertModal.addEventListener('click', () => {
+            alertModal.classList.add('hidden');
+        });
+
+        alertModal.addEventListener('click', (e) => {
+            if (e.target === alertModal) {
+                alertModal.classList.add('hidden');
+            }
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            console.log('Theme toggle clicked');
+        });
+
+        // Simulate real-time price updates
+        function updateLiveData() {
+            const livePrice = document.getElementById('live-price');
+            const priceChange = document.getElementById('price-change');
+            
+            // Simulate price fluctuations
+            const basePrice = 0.00234;
+            const variation = (Math.random() - 0.5) * 0.0001;
+            const newPrice = basePrice + variation;
+            const changePercent = ((newPrice - basePrice) / basePrice * 100).toFixed(2);
+            
+            livePrice.textContent = `$${newPrice.toFixed(5)}`;
+            priceChange.textContent = `${changePercent >= 0 ? '+' : ''}${changePercent}%`;
+            priceChange.className = changePercent >= 0 ? 'text-xl font-semibold text-success' : 'text-xl font-semibold text-error';
+        }
+
+        // Update prices every 3 seconds
+        setInterval(updateLiveData, 3000);
+
+        // Chart timeframe switching
+        document.querySelectorAll('[data-timeframe]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('[data-timeframe]').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white');
+                    b.classList.add('bg-surface-hover', 'text-text-secondary');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-surface-hover', 'text-text-secondary');
+                this.classList.add('bg-primary', 'text-white');
+                
+                // Show loading state
+                const chartLoading = document.getElementById('chart-loading');
+                chartLoading.style.display = 'flex';
+                
+                // Hide loading after 1 second
+                setTimeout(() => {
+                    chartLoading.style.display = 'none';
+                }, 1000);
+            });
+        });
+
+        // Interactive elements feedback
+        document.querySelectorAll('.interactive-element').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all data cards for animation
+        document.querySelectorAll('.data-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Simulate WebSocket connection for real-time updates
+        function simulateWebSocketUpdates() {
+            // Update whale movements
+            const whaleMovements = document.querySelector('.data-card:has(h3:contains("Recent Whale Movements"))');
+            if (whaleMovements) {
+                // Add new movement occasionally
+                if (Math.random() < 0.1) {
+                    console.log('New whale movement detected');
+                }
+            }
+            
+            // Update social sentiment
+            const sentimentBars = document.querySelectorAll('.w-16.bg-surface-hover');
+            sentimentBars.forEach(bar => {
+                const fill = bar.querySelector('div');
+                if (fill) {
+                    const currentWidth = parseInt(fill.style.width) || 75;
+                    const newWidth = Math.max(50, Math.min(90, currentWidth + (Math.random() - 0.5) * 5));
+                    fill.style.width = `${newWidth}%`;
+                }
+            });
+        }
+
+        // Run WebSocket simulation every 10 seconds
+        setInterval(simulateWebSocketUpdates, 10000);
+
+        // Export data functionality
+        document.querySelector('button:has(span:contains("Export Data"))').addEventListener('click', function() {
+            // Simulate data export
+            const data = {
+                timestamp: new Date().toISOString(),
+                price: document.getElementById('live-price').textContent,
+                change: document.getElementById('price-change').textContent,
+                marketCap: '$2,145,678',
+                volume: '$456,789',
+                holders: '24,567'
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `gooner-data-${Date.now()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active timeframe
+            const activeTimeframe = document.querySelector('button:contains("1H")');
+            if (activeTimeframe) {
+                activeTimeframe.classList.add('bg-primary', 'text-white');
+                activeTimeframe.classList.remove('bg-surface-hover', 'text-text-secondary');
+            }
+            
+            // Start initial data updates
+            updateLiveData();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
