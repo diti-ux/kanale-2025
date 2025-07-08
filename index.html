@@ -1,57 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting to Homepage...</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .redirect-container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid #fff;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fthegooner6366back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShqipTV+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="redirect-container">
-        <div class="spinner"></div>
-        <h2>Redirecting to Homepage...</h2>
-        <p>Please wait while we redirect you to the main page.</p>
-    </div>
+<body class="dark-mode">
 
-    <script>
-        // Redirect to homepage after a short delay
-        setTimeout(function() {
-            window.location.href = 'pages/homepage_landing.html';
-        }, 2000);
-    </script>
-<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+<div class="hamburger" id="hamburger" onclick="toggleSidebar(event)">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="navbar">
+  <h1>ShqipTV+</h1>
+</div>
+
+<div class="hero">
+  <h2>kërçova IPTV</h2>
+  <p>Shiko kanale pa pagesë në cilësi të lartë</p>
+  <div class="planet-container" aria-label="Globi që rrotullohet">
+    <div class="layer night"></div>
+    <div class="layer day"></div>
+    <div class="layer clouds"></div>
+  </div>
+  <button class="btn-primary" onclick="shfaqListat()">Show Lists</button>
+</div>
+
+<div class="iptv-list" id="iptv">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+    <h2 style="margin: 0;">IPTV Lists</h2>
+    <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
+  </div>
+
+  <div id="infoBox">
+    <span class="symbols">❗</span> Listat IPTV përditësohen çdo 1 javë. <span class="symbols">❗</span><br><br>
+    <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
+  </div>
+
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user1&password=pass1</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user1&password=pass1', this)">Copy</button>
+  </div>
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user2&password=pass2</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user2&password=pass2', this)">Copy</button>
+  </div>
+  <div class="iptv-item">
+    <span class="link-text">http://example.com/get.php?username=user3&password=pass3</span>
+    <button onclick="copyLink('http://example.com/get.php?username=user3&password=pass3', this)">Copy</button>
+  </div>
+</div>
+
+<div class="footer">
+  &copy; 2025 ShqipTV+ | Powered by Open IPTV
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
