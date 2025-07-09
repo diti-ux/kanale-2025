@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPTV Links Dashboard - StreamLink Hub</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fstreamlink6955back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background text-text-primary min-h-screen">
+    <!-- Status Bar Simulation -->
+    <div class="status-bar h-6 flex items-center justify-between px-4 text-xs text-text-secondary">
+        <div class="flex items-center space-x-1">
+            <span>12:00</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <div class="w-4 h-2 bg-primary rounded-sm"></div>
+            <div class="w-1 h-1 bg-primary rounded-full"></div>
+            <div class="w-1 h-1 bg-primary rounded-full"></div>
+            <div class="w-1 h-1 bg-primary rounded-full"></div>
+        </div>
+    </div>
+
+    <!-- Header with Globe -->
+    <header class="relative bg-surface border-b border-border">
+        <div class="absolute inset-0 atmospheric-glow opacity-30"></div>
+        <div class="relative z-10 px-4 py-6">
+            <div class="flex flex-col items-center space-y-4">
+                <!-- Globe/Earth Image with Glow -->
+                <div class="relative">
+                    <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110"></div>
+                    <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Earth Globe" class="relative z-10 w-20 h-20 rounded-full object-cover glow-primary" loading="lazy" onerror="this.src='https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1000'; this.onerror=null;" />
+                </div>
+                
+                <!-- App Title -->
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold text-primary">StreamLink Hub</h1>
+                    <p class="text-sm text-text-secondary mt-1">IPTV Links Dashboard</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-4 py-6 space-y-6">
+        <!-- Search/Filter Section -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold">Manage Links</h2>
+                <button id="searchToggle" class="p-2 rounded-lg bg-surface border border-border hover:bg-gray-800 transition-all duration-200" onclick="toggleSearch()">
+                    <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Expandable Search Input -->
+            <div id="searchContainer" class="reveal-content">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search IPTV links..." class="w-full bg-surface border border-border rounded-lg px-4 py-3 pl-10 text-text-primary placeholder-text-secondary focus:border-primary focus:outline-none transition-colors duration-200" oninput="filterLinks()" />
+                    <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Show Lists Toggle Button -->
+        <section class="text-center">
+            <button id="showListsBtn" class="btn-primary px-8 py-3 text-lg font-medium rounded-lg glow-primary" onclick="toggleLists()">
+                <span id="toggleText">Show Lists</span>
+                <svg id="toggleIcon" class="inline-block w-5 h-5 ml-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+        </section>
+
+        <!-- IPTV Lists Section -->
+        <section id="iptvLists" class="reveal-content space-y-6">
+            <!-- Sports Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">Sports Channels</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="sports">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">ESPN HD</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://iptv.example.com/sports/espn-hd-stream-1080p-live
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://iptv.example.com/sports/espn-hd-stream-1080p-live', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Fox Sports</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://stream.foxsports.com/live/channel-1-hd-quality
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://stream.foxsports.com/live/channel-1-hd-quality', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">NBC Sports</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://nbcsports.streaming.tv/live-hd-sports-channel
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://nbcsports.streaming.tv/live-hd-sports-channel', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Films Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">Films & Movies</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="films">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Movie Channel HD</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://movies.stream.com/premium/latest-movies-4k-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://movies.stream.com/premium/latest-movies-4k-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Cinema Plus</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://cinemaplus.tv/blockbuster-movies-streaming-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://cinemaplus.tv/blockbuster-movies-streaming-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Hollywood Films</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://hollywood.stream.net/action-drama-comedy-films
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://hollywood.stream.net/action-drama-comedy-films', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">News Channels</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="news">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">CNN Live</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://cnn.live.stream.com/news/breaking-news-24-7-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://cnn.live.stream.com/news/breaking-news-24-7-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">BBC News</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://bbc.news.stream.uk/world-news-live-feed-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://bbc.news.stream.uk/world-news-live-feed-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entertainment Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">Entertainment</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="entertainment">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">HBO Max</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://hbomax.stream.com/premium/movies-series-4k-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://hbomax.stream.com/premium/movies-series-4k-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Netflix Live</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://netflix.live.stream.com/entertainment/movies-shows
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://netflix.live.stream.com/entertainment/movies-shows', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Disney+</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://disneyplus.stream.com/family/kids-movies-shows-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://disneyplus.stream.com/family/kids-movies-shows-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">Music Channels</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="music">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">MTV Live</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://mtv.music.stream.com/live/music-videos-24-7-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://mtv.music.stream.com/live/music-videos-24-7-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">VH1 Classic</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://vh1.classic.stream.tv/retro-music-hits-videos
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://vh1.classic.stream.tv/retro-music-hits-videos', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Music Choice</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://musicchoice.stream.net/pop-rock-hip-hop-live
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://musicchoice.stream.net/pop-rock-hip-hop-live', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kids Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">Kids & Family</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="kids">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Cartoon Network</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://cartoonnetwork.kids.tv/animated-shows-24-7
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://cartoonnetwork.kids.tv/animated-shows-24-7', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Nickelodeon</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://nickelodeon.stream.com/kids/family-shows-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://nickelodeon.stream.com/kids/family-shows-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Disney Junior</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://disneyjunior.family.tv/preschool-education-fun
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://disneyjunior.family.tv/preschool-education-fun', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentary Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">Documentary</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="documentary">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">Discovery Channel</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://discovery.docs.tv/nature-science-wildlife-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://discovery.docs.tv/nature-science-wildlife-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">National Geographic</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://natgeo.documentary.stream.com/exploration-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://natgeo.documentary.stream.com/exploration-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">History Channel</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://history.docs.net/historical-documentaries-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://history.docs.net/historical-documentaries-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Category -->
+            <div class="card p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-primary">International</h3>
+                </div>
+                
+                <!-- URL Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-category="international">
+                    <!-- URL Card 1 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">BBC World</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://bbc.international.tv/world-news-uk-live-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://bbc.international.tv/world-news-uk-live-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 2 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">France 24</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://france24.stream.fr/international-news-french
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://france24.stream.fr/international-news-french', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- URL Card 3 -->
+                    <div class="url-card bg-gray-800 rounded-lg p-4 border border-border hover:border-primary/30 transition-all duration-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-text-primary mb-1">DW English</p>
+                                <p class="text-xs text-text-secondary text-truncate font-mono">
+                                    http://dw.german.stream.com/deutsche-welle-english-hd
+                                </p>
+                            </div>
+                            <button class="ml-3 bg-primary text-background px-3 py-1 rounded-md text-sm font-medium hover:bg-accent transition-colors duration-200 flex-shrink-0" onclick="copyToClipboard('http://dw.german.stream.com/deutsche-welle-english-hd', this)">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Copy Success Toast -->
+        <div id="copyToast" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-success text-background px-4 py-2 rounded-lg font-medium opacity-0 transition-all duration-300 z-50">
+            Link copied to clipboard!
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-surface border-t border-border px-4 py-6">
+        <div class="text-center space-y-2">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                    <span class="text-background text-xs font-bold">S</span>
+                </div>
+                <span class="text-lg font-semibold text-primary">StreamLink Hub</span>
+            </div>
+            <p class="text-xs text-text-secondary">
+                © 2025 StreamLink Hub. All Rights Reserved.
+            </p>
+            <p class="text-xs text-text-secondary">
+                Professional IPTV Link Management Platform
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let listsVisible = false;
+        let searchVisible = false;
+
+        // Toggle Lists Visibility
+        function toggleLists() {
+            const listsSection = document.getElementById('iptvLists');
+            const toggleText = document.getElementById('toggleText');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            listsVisible = !listsVisible;
+            
+            if (listsVisible) {
+                listsSection.classList.add('active');
+                toggleText.textContent = 'Hide Lists';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                listsSection.classList.remove('active');
+                toggleText.textContent = 'Show Lists';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Toggle Search Visibility
+        function toggleSearch() {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchInput = document.getElementById('searchInput');
+            
+            searchVisible = !searchVisible;
+            
+            if (searchVisible) {
+                searchContainer.classList.add('active');
+                setTimeout(() => searchInput.focus(), 300);
+            } else {
+                searchContainer.classList.remove('active');
+                searchInput.value = '';
+                filterLinks();
+            }
+        }
+
+        // Filter Links Function
+        function filterLinks() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const urlCards = document.querySelectorAll('.url-card');
+            
+            urlCards.forEach(card => {
+                const channelName = card.querySelector('.text-sm').textContent.toLowerCase();
+                const url = card.querySelector('.text-truncate').textContent.toLowerCase();
+                
+                if (channelName.includes(searchTerm) || url.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fade-in 300ms ease-out';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy to Clipboard Function
+        async function copyToClipboard(url, button) {
+            try {
+                // Modern Clipboard API
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(url);
+                } else {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = url;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    textArea.remove();
+                }
+                
+                // Show success feedback
+                showCopyToast();
+                
+                // Button feedback
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('bg-success');
+                button.classList.remove('bg-primary');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('bg-success');
+                    button.classList.add('bg-primary');
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                
+                // Error feedback
+                button.textContent = 'Error';
+                button.classList.add('bg-error');
+                button.classList.remove('bg-primary');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('bg-error');
+                    button.classList.add('bg-primary');
+                }, 2000);
+            }
+        }
+
+        // Show Copy Toast
+        function showCopyToast() {
+            const toast = document.getElementById('copyToast');
+            toast.style.opacity = '1';
+            toast.style.transform = 'translate(-50%, 0)';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translate(-50%, -10px)';
+            }, 2000);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl/Cmd + K to toggle search
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    toggleSearch();
+                }
+                
+                // Escape to close search
+                if (e.key === 'Escape' && searchVisible) {
+                    toggleSearch();
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

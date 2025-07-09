@@ -1,64 +1,69 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShqipTV+</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPTV Links Dashboard - Redirecting...</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .redirect-container {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .redirect-text {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .manual-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .manual-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fstreamlink6955back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
 </head>
-<body class="dark-mode">
+<body>
+    <div class="redirect-container">
+        <div class="spinner"></div>
+        <div class="redirect-text">Redirecting to IPTV Links Dashboard...</div>
+        <p>If you are not redirected automatically, <a href="pages/iptv_links_dashboard.html" class="manual-link">click here</a>.</p>
+    </div>
 
-<div class="hamburger" id="hamburger" onclick="toggleSidebar(event)">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-<div class="navbar">
-  <h1>ShqipTV+</h1>
-</div>
-
-<div class="hero">
-  <h2>kërçova IPTV</h2>
-  <p>Shiko kanale pa pagesë në cilësi të lartë</p>
-  <div class="planet-container" aria-label="Globi që rrotullohet">
-    <div class="layer night"></div>
-    <div class="layer day"></div>
-    <div class="layer clouds"></div>
-  </div>
-  <button class="btn-primary" onclick="shfaqListat()">Show Lists</button>
-</div>
-
-<div class="iptv-list" id="iptv">
-  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-    <h2 style="margin: 0;">IPTV Lists</h2>
-    <button onclick="shfaqInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold;">Info</button>
-  </div>
-
-  <div id="infoBox">
-    <span class="symbols">❗</span> Listat IPTV përditësohen çdo 1 javë. <span class="symbols">❗</span><br><br>
-    <button onclick="mbyllInfo()" style="background-color: #ff0000; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
-  </div>
-
-  <div class="iptv-item">
-    <span class="link-text">http://example.com/get.php?username=user1&password=pass1</span>
-    <button onclick="copyLink('http://example.com/get.php?username=user1&password=pass1', this)">Copy</button>
-  </div>
-  <div class="iptv-item">
-    <span class="link-text">http://example.com/get.php?username=user2&password=pass2</span>
-    <button onclick="copyLink('http://example.com/get.php?username=user2&password=pass2', this)">Copy</button>
-  </div>
-  <div class="iptv-item">
-    <span class="link-text">http://example.com/get.php?username=user3&password=pass3</span>
-    <button onclick="copyLink('http://example.com/get.php?username=user3&password=pass3', this)">Copy</button>
-  </div>
-</div>
-
-<div class="footer">
-  &copy; 2025 ShqipTV+ | Powered by Open IPTV
-</div>
-
-<script src="script.js"></script>
+    <script>
+        // Redirect to the IPTV Links Dashboard after a short delay
+        setTimeout(function() {
+            window.location.href = 'pages/iptv_links_dashboard.html';
+        }, 2000);
+    </script>
+<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
 </body>
 </html>
